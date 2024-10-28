@@ -3,12 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Redirecting...</title>
-    <script>
-        window.location.href = "https://destination.com/?utm_source=medium&utm_medium=blog&utm_campaign=default_campaign";
-    </script>
+    <title>URL Redirector</title>
 </head>
 <body>
-    <p>Redirecting...</p>
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const website = urlParams.get('website');
+        if (website) {
+            window.location.href = `https://${website}`;
+        } else {
+            document.body.innerHTML = "No website parameter specified!";
+        }
+    </script>
 </body>
 </html>
